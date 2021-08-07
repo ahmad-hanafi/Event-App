@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       confirmDate: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
-      isApprove: {
-        type: Sequelize.BOOLEAN
+      confirmStatus: {
+        type: Sequelize.STRING
       },
       remark: {
         type: Sequelize.STRING

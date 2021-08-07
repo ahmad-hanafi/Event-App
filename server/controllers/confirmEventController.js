@@ -27,7 +27,12 @@ class ConfirmEventController {
     static showAllForVendor(req, res, next) {
         ConfirmEvent.findAll({
             where: { userID: req.currentUser.id },
-            include: [{ model: Event }],
+            include: [
+                { model: Event }, 
+                { 
+                model: User,
+                attributes: [ 'id', 'username']
+               }],
             order: [['eventID', 'ASC']]
         })
             .then((ConfirmEvent) => {
@@ -60,7 +65,7 @@ class ConfirmEventController {
                         userID: req.currentUser.id,
                         eventID,
                         confirmDate: req.body.confirmDate,
-                        isApprove: req.body.isApprove,
+                        confirmStatus: req.body.confirmStatus,
                         remark: req.body.remark,
                     }
                     return ConfirmEvent.create(addConfirmEvent)

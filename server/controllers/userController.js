@@ -24,7 +24,7 @@ class UserController {
                 if (user) {
                     const isValidPassword = bcrypt.compareSync(req.body.password, user.password)
                     if (isValidPassword) {
-                    let payload = { id: user.id, email: user.email, username: user.username }
+                    let payload = { id: user.id, email: user.email, username: user.username, roles: user.roles }
                     res.status(200).json({ ...payload, access_token: generateToken(payload) })
 
                 } else {

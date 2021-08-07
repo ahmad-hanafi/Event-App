@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
-    confirmDate: DataTypes.DATE,
-    isApprove: DataTypes.BOOLEAN,
+    confirmDate: DataTypes.STRING,
+    confirmStatus: DataTypes.STRING,
     remark: DataTypes.STRING,
     userID: {
       type: DataTypes.INTEGER,
